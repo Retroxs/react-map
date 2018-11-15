@@ -1,12 +1,82 @@
-import React from 'react';
+/** documentation
+ * @link rc-bmap库: https://bmap.jser-club.com/guide/getting-started.html
+ * @link 百度地图: http://lbsyun.baidu.com/index.php?title=jspopular3.0
+ */
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {CityList, Map, Marker, MarkerClusterer, Navigation} from 'rc-bmap';
+import {cityListProps, mapProps, navigationProps, refreshProps} from './config/mapProps';
+import {Dashboard,RefreshNavigation} from './components'
+import {fetchInfo, fetchMarkers} from './lib/resolver';
+import {contentGenJsx} from './lib/generator';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class App extends Component {
+    state = {
+        points: [],
+        point: {},
+        info: <div/>,
+        title: '',
+    };
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    events(id) {
+        return {
+            click: async (e) => {
+                console.log(e);
+                const {point} = e;
+                let {data} = await fetchInfo(id);
+                let title = data.name + '   ' + (data.position || '');
+                let info = contentGenJsx(data);
+                this.setState({point, info, title})
+
+            }
+        }
+    };
+
+    async fetchData() {
+        let {data} = await fetchMarkers();
+        this.setState({points: data})
+    }
+
+    componentDidMount() {
+        this.fetchData();
+    }
+
+    handleRefresh = () => {
+        window.bMapInstance.setCenter('北京');
+        window.bMapInstance.setZoom(10);
+        this.fetchData()
+    };
+
+    render() {
+        const {points, point, info, title} = this.state;
+        return (
+            <div className="app">
+                <div className="map-view">
+                    <Map {...mapProps}>
+                        <Navigation {...navigationProps}/>
+                        <CityList {...cityListProps}/>
+                        <RefreshNavigation {...refreshProps} onRefresh={this.handleRefresh}/>
+                        <MarkerClusterer>
+                            {points.map(point => <Marker
+                                key={point.id}
+                                events={this.events(point.id)}
+                                point={{lng: point.lng, lat: point.lat}}
+                            />)}
+                        </MarkerClusterer>
+                        {/*{title && <InfoWindow*/}
+                        {/*title={title}*/}
+                        {/*content={info}*/}
+                        {/*point={point}*/}
+                        {/*{...infowindowProps}*/}
+                        {/*/>}*/}
+                    </Map>
+                </div>
+                <Dashboard/>
+            </div>
+
+        );
+    }
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'));

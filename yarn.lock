@@ -1765,6 +1765,28 @@ bluebird@^3.5.1:
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.2.tgz#1be0908e054a751754549c270489c1505d4ab15a"
   integrity sha512-dhHTWMI7kMx5whMQntl7Vr9C6BvV10lFXDAasnqnrMYhXVCzzk6IO9Fo2L75jXHT07WrOngL1WDXOp+yYS91Yg==
 
+bmaplib.curveline@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/bmaplib.curveline/download/bmaplib.curveline-1.0.0.tgz#826eb0bf1c59fad1b23142be66fc360cf009aea2"
+  integrity sha1-gm6wvxxZ+tGyMUK+Zvw2DPAJrqI=
+
+bmaplib.heatmap@^1.0.4:
+  version "1.0.4"
+  resolved "http://registry.npm.taobao.org/bmaplib.heatmap/download/bmaplib.heatmap-1.0.4.tgz#30161262771fe78af35705ff92457725de5d9850"
+  integrity sha1-MBYSYncf54rzVwX/kkV3Jd5dmFA=
+
+bmaplib.markerclusterer@^1.0.13:
+  version "1.0.13"
+  resolved "http://registry.npm.taobao.org/bmaplib.markerclusterer/download/bmaplib.markerclusterer-1.0.13.tgz#442d71a6c40844ee47d01f6db2166b54530b5bd1"
+  integrity sha1-RC1xpsQIRO5H0B9tshZrVFMLW9E=
+  dependencies:
+    bmaplib.texticonoverlay "^1.0.2"
+
+bmaplib.texticonoverlay@^1.0.2:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/bmaplib.texticonoverlay/download/bmaplib.texticonoverlay-1.0.2.tgz#d78546ea0f036d9fe964983796315b6c112a05bf"
+  integrity sha1-14VG6g8DbZ/pZJg3ljFbbBEqBb8=
+
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.8"
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
@@ -2317,6 +2339,11 @@ combined-stream@~1.0.6:
   integrity sha512-brWl9y6vOB1xYPZcpZde3N9zDByXTosAeMDo4p1wzo6UMOX4vumB+TP1RZ76sfE6Md68Q0NJSrE/gbezd4Ul+w==
   dependencies:
     delayed-stream "~1.0.0"
+
+commander@*:
+  version "2.19.0"
+  resolved "http://registry.npm.taobao.org/commander/download/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
+  integrity sha1-9hmKqE5bg8RgVLlN3tv+1e6f8So=
 
 commander@2.17.x, commander@~2.17.1:
   version "2.17.1"
@@ -4480,6 +4507,16 @@ http-parser-js@>=0.4.0:
   resolved "https://registry.yarnpkg.com/http-parser-js/-/http-parser-js-0.4.13.tgz#3bd6d6fde6e3172c9334c3b33b6c193d80fe1137"
   integrity sha1-O9bW/ebjFyyTNMOzO2wZPYD+ETc=
 
+http-proxy-middleware@^0.19.0:
+  version "0.19.0"
+  resolved "http://registry.npm.taobao.org/http-proxy-middleware/download/http-proxy-middleware-0.19.0.tgz#40992b5901dc44bc7bc3795da81b0b248eca02d8"
+  integrity sha1-QJkrWQHcRLx7w3ldqBsLJI7KAtg=
+  dependencies:
+    http-proxy "^1.17.0"
+    is-glob "^4.0.0"
+    lodash "^4.17.10"
+    micromatch "^3.1.10"
+
 http-proxy-middleware@~0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/http-proxy-middleware/-/http-proxy-middleware-0.18.0.tgz#0987e6bb5a5606e5a69168d8f967a87f15dd8aab"
@@ -4490,7 +4527,7 @@ http-proxy-middleware@~0.18.0:
     lodash "^4.17.5"
     micromatch "^3.1.9"
 
-http-proxy@^1.16.2:
+http-proxy@^1.16.2, http-proxy@^1.17.0:
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.17.0.tgz#7ad38494658f84605e2f6db4436df410f4e5be9a"
   integrity sha512-Taqn+3nNvYRfJ3bGvKfBSRwy1v6eePlm3oc/aWVxZp57DQr5Eq3xhKJi7Z4hZpS8PC3H4qI+Yly5EmFacGuA/g==
@@ -6185,6 +6222,13 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
+mockjs@^1.0.1-beta3:
+  version "1.0.1-beta3"
+  resolved "http://registry.npm.taobao.org/mockjs/download/mockjs-1.0.1-beta3.tgz#d234f3c27256397564f2c955142e891909537209"
+  integrity sha1-0jTzwnJWOXVk8slVFC6JGQlTcgk=
+  dependencies:
+    commander "*"
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -7791,6 +7835,15 @@ raw-body@2.3.2:
     iconv-lite "0.4.19"
     unpipe "1.0.0"
 
+rc-bmap@^0.2.4:
+  version "0.2.4"
+  resolved "http://registry.npm.taobao.org/rc-bmap/download/rc-bmap-0.2.4.tgz#4fba0737078f386b5fd2cdef43ac273e7da0fb84"
+  integrity sha1-T7oHNwePOGtf0s3vQ6wnPn2g+4Q=
+  dependencies:
+    bmaplib.curveline "^1.0.0"
+    bmaplib.heatmap "^1.0.4"
+    bmaplib.markerclusterer "^1.0.13"
+
 rc@^1.2.7:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
@@ -7842,7 +7895,7 @@ react-dev-utils@^6.1.1:
     strip-ansi "4.0.0"
     text-table "0.2.0"
 
-react-dom@16.6.0:
+react-dom@^16.6.0:
   version "16.6.0"
   resolved "http://registry.npm.taobao.org/react-dom/download/react-dom-16.6.0.tgz#6375b8391e019a632a89a0988bce85f0cc87a92f"
   integrity sha1-Y3W4OR4BmmMqiaCYi86F8MyHqS8=
@@ -7912,7 +7965,7 @@ react-scripts@2.1.1:
   optionalDependencies:
     fsevents "1.2.4"
 
-react@16.6.0:
+react@^16.6.0:
   version "16.6.0"
   resolved "http://registry.npm.taobao.org/react/download/react-16.6.0.tgz#b34761cfaf3e30f5508bc732fb4736730b7da246"
   integrity sha1-s0dhz68+MPVQi8cy+0c2cwt9okY=
