@@ -1,18 +1,33 @@
 import styleJson from './map-config';
 
+function getCenter() {
+    const {ssApp, BMap, bMapInstance} = window;
+    let geoCoder = new BMap.Geocoder();
+    const point = bMapInstance.getCenter();
+    geoCoder.getLocation(point, v => {
+            let {province} = v.addressComponents;
+            let {showType} = ssApp.state;
+            if (showType === 'OVERVIEW') {
+                ssApp.fetchOverview(province || 'xxx');
+            }
+            else if (showType === 'EFFECTIVE') {
+                ssApp.fetchEffective(province || 'xxx')
+            }
+        }
+    );
+}
+
 export const mapProps = {
     ak: 'MzVHyy4iZ6LVT8rqIYfpQQYHMRGwkzzU',
-    mapStyle: {styleJson},
-    zoom: 10,
+    // mapStyle: {styleJson},
+    zoom: 5,
     minZoom: 5,
     maxZoom: 12,
     mapClick: false,
     doubleClickZoom: false,
     events: {
-        zoomend: () => {
-            window.bMapInstance.closeInfoWindow()
-        },
-        click: e => console.log(e.target.Jg)
+        zoomend: getCenter,
+        moveend: getCenter,
     }
 };
 
@@ -21,7 +36,7 @@ export const navigationProps = {
 };
 
 export const cityListProps = {
-    // offset: 1
+    offset: {width: 20, height: 20}
 };
 
 export const refreshProps = {

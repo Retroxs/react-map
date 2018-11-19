@@ -6,36 +6,30 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {CityList, Map, Marker, MarkerClusterer, Navigation} from 'rc-bmap';
 import {cityListProps, mapProps, navigationProps, refreshProps} from './config/mapProps';
-import {Dashboard,RefreshNavigation} from './components'
+import {Dashboard, RefreshNavigation} from './components'
 import {fetchInfo, fetchMarkers} from './lib/resolver';
-import {contentGenJsx} from './lib/generator';
 import './index.css';
 
 class App extends Component {
     state = {
         points: [],
         point: {},
-        info: <div/>,
-        title: '',
     };
 
     events(id) {
         return {
             click: async (e) => {
-                console.log(e);
-                const {point} = e;
+                // const {point} = e;
                 let {data} = await fetchInfo(id);
-                let title = data.name + '   ' + (data.position || '');
-                let info = contentGenJsx(data);
-                this.setState({point, info, title})
-
+                window.ssApp.setState({index:2,showType:'INFO',info: data || {}})
             }
         }
     };
 
     async fetchData() {
-        let {data} = await fetchMarkers();
-        this.setState({points: data})
+        const {region} = this.state;
+        let {data} = await fetchMarkers(region);
+        this.setState({points: data || []});
     }
 
     componentDidMount() {
@@ -49,7 +43,7 @@ class App extends Component {
     };
 
     render() {
-        const {points, point, info, title} = this.state;
+        const {points} = this.state;
         return (
             <div className="app">
                 <div className="map-view">
@@ -64,12 +58,6 @@ class App extends Component {
                                 point={{lng: point.lng, lat: point.lat}}
                             />)}
                         </MarkerClusterer>
-                        {/*{title && <InfoWindow*/}
-                        {/*title={title}*/}
-                        {/*content={info}*/}
-                        {/*point={point}*/}
-                        {/*{...infowindowProps}*/}
-                        {/*/>}*/}
                     </Map>
                 </div>
                 <Dashboard/>
