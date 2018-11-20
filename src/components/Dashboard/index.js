@@ -150,7 +150,7 @@ class Dashboard extends Component {
             return (
                 <div className="data-view">
                     <button className={classnames("action-button")}
-                            onClick={() => this.changeType(ShowType.OVERVIEW)}>BACK
+                            onClick={() => this.changeType(ShowType.OVERVIEW)}>返回
                     </button>
                     {block(showType,p)}
                 </div>
