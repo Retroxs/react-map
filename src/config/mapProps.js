@@ -28,6 +28,11 @@ export const mapProps = {
     events: {
         zoomend: getCenter,
         moveend: getCenter,
+        dragstart: e => console.log(e),
+        touchstart: e => console.log(e),
+        touchmove: e => console.log(e),
+        touchend: e => console.log(e),
+        longpress: e => console.log(e)
     }
 };
 
