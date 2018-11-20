@@ -20,10 +20,10 @@ const ShowType = {
 function barChart(type, data) {
     return <div>
         <h2 className="bar-title">{type}</h2>
-        <BarChart width={600} height={200} data={data} margin={{left:-60}}>
+       <BarChart width={600} height={200} data={data}>
+             <CartesianGrid strokeDasharray="3 3"/>
             <XAxis/>
             <YAxis/>
-            <CartesianGrid strokeDasharray="3 3"/>
             <Bar dataKey='effective' fill='#8884d8' maxBarSize={30}/>
         </BarChart>
     </div>
@@ -54,7 +54,7 @@ function block(type, props) {
                 </div>)
             }
             <h3>瞬时流量24小时曲线图</h3>
-            <LineChart width={600} height={200} data={instantFlows} margin={{left:-60}}>
+            <LineChart width={600} height={200} data={instantFlows}>
                 <XAxis dataKey="hour"/>
                 <YAxis/>
                 <CartesianGrid strokeDasharray="3 3"/>

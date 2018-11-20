@@ -42,8 +42,8 @@ class App extends Component {
   }
 
   handleRefresh = () => {
-    window.bMapInstance.setCenter("北京");
-    window.bMapInstance.setZoom(10);
+    // window.bMapInstance.setCenter("北京");
+    // window.bMapInstance.setZoom(10);
     this.fetchData();
   };
 
@@ -55,10 +55,10 @@ class App extends Component {
           <Map {...mapProps}>
             <Navigation {...navigationProps} />
             <CityList {...cityListProps} />
-            <RefreshNavigation
+            {/* <RefreshNavigation
               {...refreshProps}
               onRefresh={this.handleRefresh}
-            />
+            /> */}
             <MarkerClusterer>
               {points.map(point => (
                 <Marker

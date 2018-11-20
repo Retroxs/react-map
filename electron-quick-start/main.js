@@ -2,10 +2,10 @@
 const {app, BrowserWindow} = require('electron')
 
 function createWindow () {
-  let mainWindow = new BrowserWindow({show:false});
-    mainWindow.maximize();
-    mainWindow.show();
-    mainWindow.loadURL('http://192.168.1.150:3000');
+  let mainWindow = new BrowserWindow({fullscreen:true});
+    // mainWindow.maximize();
+    // mainWindow.show();
+    mainWindow.loadURL('http://192.168.43.20:3000');
     mainWindow.on('closed', function () {
     mainWindow = null
   })

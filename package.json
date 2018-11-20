@@ -6,6 +6,7 @@
     "http-proxy-middleware": "^0.19.0",
     "rc-bmap": "^0.2.4",
     "react": "^16.6.0",
+    "react-amap": "^1.2.7",
     "react-dom": "^16.6.0",
     "react-scripts": "2.1.1",
     "recharts": "^1.4.1"

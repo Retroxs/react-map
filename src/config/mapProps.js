@@ -21,10 +21,10 @@ export const mapProps = {
     ak: 'MzVHyy4iZ6LVT8rqIYfpQQYHMRGwkzzU',
     // mapStyle: {styleJson},
     zoom: 5,
-    minZoom: 5,
-    maxZoom: 12,
-    mapClick: false,
-    doubleClickZoom: false,
+    // minZoom: 5,
+    // maxZoom: 12,
+    // mapClick: false,
+    // doubleClickZoom: false,
     events: {
         zoomend: getCenter,
         moveend: getCenter,
@@ -32,7 +32,8 @@ export const mapProps = {
 };
 
 export const navigationProps = {
-    anchor: 'BMAP_ANCHOR_TOP_RIGHT'
+    anchor: 'BMAP_ANCHOR_TOP_RIGHT',
+    showZoomInfo:true
 };
 
 export const cityListProps = {
